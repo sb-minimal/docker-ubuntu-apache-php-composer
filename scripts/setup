@@ -1,0 +1,14 @@
+#!/bin/bash
+
+apt-get update
+apt-get -y upgrade
+
+apt-get -y install \
+ apache2 curl \
+ php5 libapache2-mod-php5 php5-mysql php5-gd php5-curl php-pear php-apc \
+ git
+
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
+
