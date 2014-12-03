@@ -8,7 +8,14 @@ apt-get -y install \
  php5 libapache2-mod-php5 php5-mysql php5-gd php5-curl php-pear php-apc \
  git
 
+# make mysql socket mountable via directory instead of file
+mkdir -p /var/run/mysqld/socket
+ln -s /var/run/mysqld/socket/mysqld.sock
+/var/run/mysqld/mysqld.sock
+
+# install composer
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# setup /app dir
 mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
 
