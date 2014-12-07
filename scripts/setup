@@ -10,8 +10,7 @@ apt-get -y install \
 
 # make mysql socket mountable via directory instead of file
 mkdir -p /var/run/mysqld/socket
-ln -s /var/run/mysqld/socket/mysqld.sock
-/var/run/mysqld/mysqld.sock
+ln -s /var/run/mysqld/socket/mysqld.sock /var/run/mysqld/mysqld.sock
 
 # install composer
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
